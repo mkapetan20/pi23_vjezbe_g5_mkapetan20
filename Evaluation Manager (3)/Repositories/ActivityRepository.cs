@@ -7,15 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Evaluation_Manager.Repositories {
-    public class ActivityRepository {
-        public static Activity GetActivity(int id) {
+namespace Evaluation_Manager.Repositories
+{
+    public class ActivityRepository
+    {
+        public static Activity GetActivity(int id)
+        {
             Activity activity = null;
             string sql = $"SELECT * FROM Activities WHERE Id = {id}";
             DB.OpenConnection();
 
             var reader = DB.GetDataReader(sql);
-            if (reader.HasRows) {
+            if(reader.HasRows)
+            {
                 reader.Read();
                 activity = CreateObject(reader);
                 reader.Close();
@@ -25,12 +29,14 @@ namespace Evaluation_Manager.Repositories {
             return activity;
         }
 
-        public static List<Activity> GetActivities() {
+        public static List<Activity> GetActivities()
+        {
             List<Activity> activities = new List<Activity>();
             string sql = "SELECT * FROM Activities";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 Activity activity = CreateObject(reader);
                 activities.Add(activity);
             }
@@ -39,7 +45,8 @@ namespace Evaluation_Manager.Repositories {
             return activities;
         }
 
-        private static Activity CreateObject(SqlDataReader reader) {
+        private static Activity CreateObject(SqlDataReader reader)
+        {
             int id = int.Parse(reader["Id"].ToString());
             string name = reader["Name"].ToString();
             string description = reader["Description"].ToString();
@@ -47,7 +54,8 @@ namespace Evaluation_Manager.Repositories {
             int minPointsForGrade = int.Parse(reader["MinPointsForGrade"].ToString());
             int minPointsForSignature = int.Parse(reader["MinPointsForSignature"].ToString());
 
-            var activity = new Activity {
+            var activity = new Activity
+            {
                 Id = id,
                 Name = name,
                 Description = description,
