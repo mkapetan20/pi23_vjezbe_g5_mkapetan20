@@ -20,6 +20,7 @@ namespace Evaluation_Manager {
             Close();
         }
 
+
         private List<StudentReportView> GenerateStudentReport() {
             var allStudents = StudentRepository.GetStudents();
             var examReport = new List<StudentReportView>();
@@ -28,18 +29,18 @@ namespace Evaluation_Manager {
 
                 if (student.HasSignature() == true) {
                     var examReports = new StudentReportView(student);
-                    examReports.Add(examReport);
+                    examReport.Add(examReports);
 
                 }
             }
             return GenerateStudentReport();
         }
 
-
-        private void btnGenerateReport_Click(object sender, EventArgs e) {
-            var form = new FrmFinalReport();
-            form.ShowDialog();  
-
+        private void FrmFinalReport_Load(object sender, EventArgs e) {
+            var results = GenerateStudentReport();
+            dgvResults.DataSource = results;
         }
+
+        
     }
 }

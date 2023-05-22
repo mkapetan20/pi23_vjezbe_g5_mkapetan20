@@ -25,7 +25,6 @@
         private void InitializeComponent() {
             this.dgvResults = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnGenerateReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,22 +46,11 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnGenerateReport
-            // 
-            this.btnGenerateReport.Location = new System.Drawing.Point(23, 471);
-            this.btnGenerateReport.Name = "btnGenerateReport";
-            this.btnGenerateReport.Size = new System.Drawing.Size(136, 25);
-            this.btnGenerateReport.TabIndex = 2;
-            this.btnGenerateReport.Text = "Generraj izvještaj";
-            this.btnGenerateReport.UseVisualStyleBackColor = true;
-            this.btnGenerateReport.Click += new System.EventHandler(this.btnGenerateReport_Click);
-            // 
             // FrmFinalReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 517);
-            this.Controls.Add(this.btnGenerateReport);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvResults);
             this.Name = "FrmFinalReport";
@@ -76,6 +64,5 @@
 
         private System.Windows.Forms.DataGridView dgvResults;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnGenerateReport;
     }
 }
